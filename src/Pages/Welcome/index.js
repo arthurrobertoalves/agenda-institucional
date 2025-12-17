@@ -1,4 +1,4 @@
-import { Text, View, Image, ActivityIndicator } from 'react-native';
+import { Text, View, Image } from 'react-native';
 
 import imgCalendar from './assets/calendar.png';
 import SignUpButton from './components/SignUpButton';
