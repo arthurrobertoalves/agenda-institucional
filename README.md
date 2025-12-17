@@ -51,8 +51,6 @@ As principais ferramentas utilizadas no desenvolvimento foram:
 - **[React Native](https://reactnative.dev/)** - Framework principal.
 - **[Expo](https://expo.dev/)** - Plataforma para gestão do projeto.
 - **[React Navigation](https://reactnavigation.org/)** - Navegação entre telas (Stack/Tabs).
-- **[Axios](https://axios-http.com/)** - Requisições HTTP (Integração com Backend).
-- **[Date-fns](https://date-fns.org/)** - Manipulação e formatação de datas.
 
 ---
 
