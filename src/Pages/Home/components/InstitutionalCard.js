@@ -1,12 +1,33 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { institutions } from '../../../../api/institutions';
 
 export default function InstitutionalCard() {
+
+  const institutions = [
+    {
+      id: 'usp',
+      orgName: 'USP',
+      code: 'USP001',
+      countEvents: 2
+    },
+    {
+      id: 'puc',
+      orgName: 'PUC',
+      code: 'PUC-RJ-001',
+      countEvents: 2
+    },
+    {
+      id: 'ufrj',
+      orgName: 'UFRJ',
+      code: 'Uf-RJ-001',
+      countEvents: 21
+    },
+  ];
+
   return (
     <View>
       {institutions.map((item) => (
         <View style={styles.card} key={item.id}>
-          
+
           <View style={styles.header}>
             <View>
               <Text style={styles.name}>{item.orgName}</Text>

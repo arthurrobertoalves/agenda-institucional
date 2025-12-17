@@ -1,6 +1,5 @@
 import { View, Text, ScrollView } from 'react-native';
 import { styles } from './style';
-import { institutions } from '../../../api/institutions';
 import InstitutionalCard from './components/InstitutionalCard';
 
 export default function Home() {
