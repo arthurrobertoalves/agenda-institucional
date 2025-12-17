@@ -9,7 +9,7 @@
 
 ## 📱 Sobre o Projeto
 
-O **[Nome do Seu App]** é uma aplicação móvel desenvolvida com **React Native** e **Expo** que funciona como uma **Agenda Institucional**. O objetivo é substituir os comunicados por e-mail e murais físicos, centralizando todos os eventos corporativos em uma timeline interativa.
+A **Agenda Institucional** é uma aplicação móvel desenvolvida com **React Native** e **Expo** para centralizar a comunicação de eventos corporativos. O objetivo é substituir murais físicos e comunicados dispersos por e-mail, oferecendo uma experiência unificada na palma da mão.
 
 A aplicação resolve o problema de **baixa adesão** e **falha de comunicação** em eventos internos, permitindo que a empresa publique atividades e o colaborador confirme presença na hora.
 
