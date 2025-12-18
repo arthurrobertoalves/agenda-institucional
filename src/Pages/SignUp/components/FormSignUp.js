@@ -15,7 +15,7 @@ const FormSignUp = () => {
 
     function cadastrar() {
         Alert.alert("Sucesso", "Cadastro realizado com sucesso!");
-        navigation.navigate('SignIn');
+        console.log(nome, email, senha, confirmarSenha, tipoUsuario)
     }
 
     return (

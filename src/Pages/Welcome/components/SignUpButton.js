@@ -1,10 +1,15 @@
 import { TouchableOpacity, Text } from 'react-native'
 import { StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SignUpButton() {
+    const navigation = useNavigation()
+    function redirect() {
+        navigation.navigate('SignUp')
+    }
     return (
         <TouchableOpacity style={styles.container}>
-            <Text style={styles.text}>Cadastre-se gratuitamente</Text>
+            <Text style={styles.text} onPress={() => redirect()}>Cadastre-se gratuitamente</Text>
         </TouchableOpacity>
     )
 }

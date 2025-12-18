@@ -16,27 +16,31 @@ const InputLogin = () => {
     const [senha, setSenha] = useState("");
 
     async function Login() {
-        try {
+        if (email.trim() == "" || senha.trim() == "") {
+            alert('Entradas de texto não podem ficar vazias')
+        } else {
+            try {
 
-            //COLOQUE A API
-            const response = await fetch('COLOCAR A API AQUI', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: senha,
-                }),
-            });
+                //COLOQUE A API
+                const response = await fetch('COLOCAR A API AQUI', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: senha,
+                    }),
+                });
 
-            if (response.ok) {
-                navigation.navigate('Home');
-            } else {
-                alert('Email ou senha inválidos');
+                if (response.ok) {
+                    navigation.navigate('Home');
+                } else {
+                    alert('Email ou senha inválidos');
+                }
+            } catch (error) {
+                alert('Erro de conexão com o servidor');
             }
-        } catch (error) {
-            alert('Erro de conexão com o servidor');
         }
     }
 
