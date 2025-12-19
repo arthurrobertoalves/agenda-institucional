@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
+import { colors } from '../../../../constants/colors';
 
 export default function InstitutionalCard() {
 
@@ -51,7 +52,7 @@ export default function InstitutionalCard() {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#65BC7C',
+    backgroundColor: colors.green,
     borderRadius: 20,
     padding: 18,
     marginBottom: 16,
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   },
 
   badge: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 12,
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     fontFamily: 'RedHatDisplay',
     fontSize: 11,
     fontWeight: '700',
-    color: '#65BC7C',
+    color: colors.green,
   },
 
   hint: {

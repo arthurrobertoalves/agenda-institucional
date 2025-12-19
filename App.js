@@ -1,13 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { View, ActivityIndicator,StyleSheet } from 'react-native';
-import Routes from './src/routes';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import RootLayout from './src/routes';
 import { useFonts } from 'expo-font';
-
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    'BBHHegarty': require('./assets/fonts/BBHHegarty-Regular.ttf'),
-    'RedHatDisplay': require('./assets/fonts/RedHatDisplay-VariableFont_wght.ttf'),
+    BBHHegarty: require('./assets/fonts/BBHHegarty-Regular.ttf'),
+    RedHatDisplay: require('./assets/fonts/RedHatDisplay-VariableFont_wght.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -20,10 +19,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Routes />
+      <RootLayout />
     </NavigationContainer>
   );
 }
+
 
 const styles = StyleSheet.create({
   loading: {

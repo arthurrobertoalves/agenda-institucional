@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../../constants/colors';
 
 export const styles = StyleSheet.create({
   loading: {
@@ -9,7 +10,7 @@ export const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#65BC7C',
+    backgroundColor: colors.green,
   },
 
   header: {
@@ -20,7 +21,7 @@ export const styles = StyleSheet.create({
   institution: {
     fontFamily: 'BBHHegarty',
     fontSize: 30,
-    color: '#fff',
+    color: colors.white,
   },
 
   date: {
@@ -32,14 +33,14 @@ export const styles = StyleSheet.create({
 
   overlay: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
     padding: 22,
   },
 
   cardHighlight: {
-    backgroundColor: '#65BC7C',
+    backgroundColor: colors.green,
     borderRadius: 20,
     padding: 20,
     marginBottom: 18,
@@ -57,7 +58,7 @@ export const styles = StyleSheet.create({
     fontFamily: 'RedHatDisplay',
     fontSize: 18,
     fontWeight: '700',
-    color: '#fff',
+    color: colors.white,
     marginTop: 6,
   },
 

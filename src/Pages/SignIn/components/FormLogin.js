@@ -1,49 +1,37 @@
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image, KeyboardAvoidingView } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image, ActivityIndicator, Alert } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import Checkbox from 'expo-checkbox';
 import { useState } from 'react';
 import imgApple from '../assets/apple.png';
 import imgGoogle from '../assets/search (1).png';
+import { supabase } from '../../../lib/supabase';
 
 const InputLogin = () => {
     const navigation = useNavigation();
     const [checked, setChecked] = useState(false);
-
-
-
     const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false)
 
-    async function Login() {
-        if (email.trim() == "" || senha.trim() == "") {
-            alert('Entradas de texto não podem ficar vazias')
-        } else {
-            try {
 
-                //COLOQUE A API
-                const response = await fetch('COLOCAR A API AQUI', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        password: senha,
-                    }),
-                });
 
-                if (response.ok) {
-                    navigation.navigate('Home');
-                } else {
-                    alert('Email ou senha inválidos');
-                }
-            } catch (error) {
-                alert('Erro de conexão com o servidor');
-            }
+    async function SignIn() {
+        setLoading(true)
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password
+        })
+
+        if (error) {
+            Alert.alert('Error', error.message)
+            setLoading(false)
+            return;
         }
-    }
 
+        setLoading(false)
+        navigation.navigate('Home')
+    }
 
     return (
         <View style={styles.container}>
@@ -60,8 +48,8 @@ const InputLogin = () => {
                 placeholder="Senha"
                 placeholderTextColor="#999"
                 secureTextEntry
-                value={senha}
-                onChangeText={setSenha}
+                value={password}
+                onChangeText={setPassword}
             />
 
 
@@ -80,8 +68,8 @@ const InputLogin = () => {
             </View>
 
 
-            <TouchableOpacity style={styles.button} onPress={() => Login()}>
-                <Text style={styles.buttonText}>Entrar</Text>
+            <TouchableOpacity style={styles.button} onPress={() => SignIn()}>
+                <Text style={styles.buttonText}>{loading ? 'Entrando...' : 'Entrar'}</Text>
             </TouchableOpacity>
 
             <Text style={{ fontFamily: 'RedHatDisplay', color: '#aaa', textAlign: 'center', margin: 10 }}>Ou continue com </Text>
@@ -170,7 +158,14 @@ const styles = StyleSheet.create({
         gap: 2,
         marginHorizontal: 4
     },
+    loading: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 
 });
 
 export default InputLogin;
+
+

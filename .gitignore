@@ -12,6 +12,8 @@ expo-env.d.ts
 .idea
 .env
 
+constants/supabase.js
+
 # Native
 .kotlin/
 *.orig.*

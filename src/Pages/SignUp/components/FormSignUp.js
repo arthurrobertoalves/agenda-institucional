@@ -2,20 +2,41 @@ import { View, Text, TouchableOpacity, TextInput, StyleSheet, Alert } from 'reac
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import Checkbox from 'expo-checkbox';
+import { supabase } from '../../../lib/supabase';
 
 const FormSignUp = () => {
     const navigation = useNavigation();
     const [checked, setChecked] = useState(false);
 
-    const [nome, setNome] = useState("");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
+    const [password, setPassword] = useState("");
     const [confirmarSenha, setConfirmarSenha] = useState("");
-    const [tipoUsuario, setTipoUsuario] = useState("participante");
+    const [typeUser, setTypeUser] = useState("participante");
+    const [loading, setLoading] = useState(false)
 
-    function cadastrar() {
-        Alert.alert("Sucesso", "Cadastro realizado com sucesso!");
-        console.log(nome, email, senha, confirmarSenha, tipoUsuario)
+    async function signUp() {
+        setLoading(true)
+
+        const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+
+            options: {
+                data: {
+                    name: name,
+                    typeUser: typeUser
+                }
+            }
+        })
+
+        if (error) {
+            Alert.alert('Error', error.message)
+            return;
+        }
+
+        setLoading(false)
+        navigation.navigate('SignIn')
     }
 
     return (
@@ -24,8 +45,8 @@ const FormSignUp = () => {
                 style={styles.input}
                 placeholder="Nome completo"
                 placeholderTextColor="#999"
-                value={nome}
-                onChangeText={setNome}
+                value={name}
+                onChangeText={setName}
             />
 
             <TextInput
@@ -43,8 +64,8 @@ const FormSignUp = () => {
                 placeholder="Senha"
                 placeholderTextColor="#999"
                 secureTextEntry
-                value={senha}
-                onChangeText={setSenha}
+                value={password}
+                onChangeText={setPassword}
             />
 
             <TextInput
@@ -61,13 +82,13 @@ const FormSignUp = () => {
                 <TouchableOpacity
                     style={[
                         styles.tipoButton,
-                        tipoUsuario === 'participante' && styles.tipoButtonSelected
+                        typeUser === 'participante' && styles.tipoButtonSelected
                     ]}
-                    onPress={() => setTipoUsuario('participante')}
+                    onPress={() => setTypeUser('participante')}
                 >
                     <Text style={[
                         styles.tipoButtonText,
-                        tipoUsuario === 'participante' && styles.tipoButtonTextSelected
+                        typeUser === 'participante' && styles.tipoButtonTextSelected
                     ]}>
                         Participante
                     </Text>
@@ -76,13 +97,13 @@ const FormSignUp = () => {
                 <TouchableOpacity
                     style={[
                         styles.tipoButton,
-                        tipoUsuario === 'organizador' && styles.tipoButtonSelected
+                        typeUser === 'organizador' && styles.tipoButtonSelected
                     ]}
-                    onPress={() => setTipoUsuario('organizador')}
+                    onPress={() => setTypeUser('organizador')}
                 >
                     <Text style={[
                         styles.tipoButtonText,
-                        tipoUsuario === 'organizador' && styles.tipoButtonTextSelected
+                        typeUser === 'organizador' && styles.tipoButtonTextSelected
                     ]}>
                         Organizador
                     </Text>
@@ -100,7 +121,7 @@ const FormSignUp = () => {
                 </Text>
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={cadastrar}>
+            <TouchableOpacity style={styles.button} onPress={() => signUp()}>
                 <Text style={styles.buttonText}>Criar Conta</Text>
             </TouchableOpacity>
         </View>

@@ -39,4 +39,11 @@ export const styles = StyleSheet.create({
     fontSize: width * 0.045,
     marginBottom: height * 0.02,
   },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
+
+
