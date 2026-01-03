@@ -39,21 +39,24 @@ function Routes() {
 
             setAuth(null)
             navigation.navigate('Welcome')
+
+
+
         })
     }, [])
 
     return (
-        <Stack.Navigator>
+        <Stack.Navigator><Stack.Screen
+            name="Welcome"
+            component={Welcome}
+            options={{ headerShown: false }}
+        />
             <Stack.Screen
                 name="Loading"
                 component={Loading}
                 options={{ headerShown: false }}
             />
-            <Stack.Screen
-                name="Welcome"
-                component={Welcome}
-                options={{ headerShown: false }}
-            />
+
             <Stack.Screen
                 name="Home"
                 component={Home}
