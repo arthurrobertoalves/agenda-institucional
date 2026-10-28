@@ -186,4 +186,90 @@ export const styles = StyleSheet.create({
     color: '#65BC7C',
     fontWeight: '600',
   },
+
+  eventCard: {
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 12,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 6,
+    elevation: 2,
+  },
+
+  eventDate: {
+    width: 56,
+    height: 64,
+    borderRadius: 12,
+    backgroundColor: '#E8F5EC',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 14,
+  },
+
+  eventDay: {
+    fontFamily: 'BBHHegarty',
+    fontSize: 22,
+    color: '#65BC7C',
+  },
+
+  eventMonth: {
+    fontFamily: 'RedHatDisplay',
+    fontSize: 12,
+    color: '#65BC7C',
+    fontWeight: '600',
+  },
+
+  eventInfo: {
+    flex: 1,
+  },
+
+  eventName: {
+    fontFamily: 'RedHatDisplay',
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#333',
+    marginBottom: 6,
+  },
+
+  eventRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+
+  eventMeta: {
+    fontFamily: 'RedHatDisplay',
+    fontSize: 12,
+    color: '#777',
+    marginLeft: 4,
+    flexShrink: 1,
+  },
+
+  eventTag: {
+    marginLeft: 'auto',
+    backgroundColor: '#E8F5EC',
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    borderRadius: 10,
+  },
+
+  eventTagText: {
+    fontFamily: 'RedHatDisplay',
+    fontSize: 11,
+    color: '#65BC7C',
+    fontWeight: '600',
+  },
+
+  emptyText: {
+    fontFamily: 'RedHatDisplay',
+    fontSize: 14,
+    color: '#999',
+    textAlign: 'center',
+    marginTop: 30,
+  },
 });
